@@ -10,7 +10,11 @@ import (
 
 // Shortens the URI using the "API" listed here: http://is.gd/api_info.php
 func Shorten(uri string) (string, error) {
-	u := "http://is.gd/api.php?longurl=" + url.QueryEscape(uri)
+	// नये अनुप्रयोग क्रमादेशन अंतर्फलक का प्रयोग किया ।
+	// @see http://is.gd/apishorteningreference.php
+	// Used the new API.
+	// @see http://is.gd/apishorteningreference.php
+	u := "http://is.gd/create.php?format=simple&url=" + url.QueryEscape(uri)
 
 	response, err := http.Get(u)
 
